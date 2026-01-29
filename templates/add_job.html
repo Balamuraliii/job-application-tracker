@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Job Application</title>
+</head>
+<body>
+    <h1>Add Job Application</h1>
+
+    <form method="POST">
+        <label>Company Name:</label><br>
+        <input type="text" name="company" required><br><br>
+
+        <label>Role:</label><br>
+        <input type="text" name="role" required><br><br>
+
+        <label>Date Applied:</label><br>
+        <input type="date" name="date"><br><br>
+
+        <label>Status:</label><br>
+        <select name="status">
+            <option>Applied</option>
+            <option>Interview</option>
+            <option>Rejected</option>
+            <option>Offer</option>
+        </select><br><br>
+
+        <button type="submit">Add Job</button>
+    </form>
+</body>
+</html>
