@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Job Applications</title>
+    <title>My Job Applications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>My Job Applications</h2>
 
-    <a href="/add">Add New Job</a>
+<h2>My Job Applications</h2>
+
+<div class="container">
+
+    <a href="/add">➕ Add New Job</a>
     <br><br>
 
-    <table border="1" cellpadding="10">
+    <table>
         <tr>
             <th>Company</th>
             <th>Role</th>
             <th>Date</th>
             <th>Status</th>
+            <th>Action</th>
         </tr>
 
         {% for job in jobs %}
         <tr>
             <td>{{ job.company }}</td>
             <td>{{ job.role }}</td>
-            <td>{{ job.date }}</td>
-            <td>{{ job.status }}</td>
+            <td>{{ job.date_applied }}</td>
+
+            <td>
+                <form action="/update/{{ job._id }}" method="POST">
+                    <select name="status">
+                        <option {% if job.status=='Applied' %}selected{% endif %}>Applied</option>
+                        <option {% if job.status=='Interview' %}selected{% endif %}>Interview</option>
+                        <option {% if job.status=='Rejected' %}selected{% endif %}>Rejected</option>
+                        <option {% if job.status=='Offer' %}selected{% endif %}>Offer</option>
+                    </select>
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+
+            <td>
+                <a href="/delete/{{ job._id }}">Delete</a>
+            </td>
         </tr>
         {% endfor %}
+
     </table>
+
+    <br>
+    <a href="/logout">Logout</a>
+
+</div>
 
 </body>
 </html>

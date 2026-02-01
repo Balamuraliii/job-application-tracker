@@ -2,29 +2,41 @@
 <html>
 <head>
     <title>Add Job Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Add Job Application</h1>
 
+<h2>Add Job Application</h2>
+
+<div class="container">
     <form method="POST">
-        <label>Company Name:</label><br>
-        <input type="text" name="company" required><br><br>
 
-        <label>Role:</label><br>
-        <input type="text" name="role" required><br><br>
+        <label>Company Name</label>
+        <input type="text" name="company" required>
 
-        <label>Date Applied:</label><br>
-        <input type="date" name="date"><br><br>
+        <label>Role</label>
+        <input type="text" name="role" required>
 
-        <label>Status:</label><br>
+        <label>Tech Stack</label>
+        <input type="text" name="techstack" placeholder="JS, SQL, Java, ServiceNow">
+
+        <label>Date Applied</label>
+        <input type="date" name="date_applied">
+
+        <label>Status</label>
         <select name="status">
             <option>Applied</option>
             <option>Interview</option>
             <option>Rejected</option>
             <option>Offer</option>
-        </select><br><br>
+        </select>
+
+        <label>Notes</label>
+        <input type="text" name="notes" placeholder="Any remarks">
 
         <button type="submit">Add Job</button>
     </form>
+</div>
+
 </body>
 </html>

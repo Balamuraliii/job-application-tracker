@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Job Application Tracker</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Job Application Tracker</h1>
-    <h3>Login</h3>
 
-    <form>
-        <label>Email:</label><br>
-        <input type="email"><br><br>
+<h2>Login</h2>
 
-        <label>Password:</label><br>
-        <input type="password"><br><br>
+<div class="container">
+    <form method="POST">
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
 
         <button type="submit">Login</button>
+
+        <p>
+            Don't have an account?
+            <a href="/register">Register</a>
+        </p>
     </form>
+</div>
+
 </body>
 </html>
