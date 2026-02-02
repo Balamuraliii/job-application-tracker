@@ -4,6 +4,10 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
 import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 app = Flask(__name__)
 app.secret_key = "secretkey"
@@ -107,6 +111,6 @@ def logout():
     return redirect('/')
 
 
-if __name__ == '__main__':
-    print("Starting Flask server...")
-    app.run(debug=True, port=5001)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
