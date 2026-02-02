@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, session
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -8,8 +9,9 @@ app = Flask(__name__)
 app.secret_key = "secretkey"
 bcrypt = Bcrypt(app)
 
-client = MongoClient("MongoClient("PASTE_YOUR_ATLAS_LINK_HERE")
-")
+client = MongoClient(os.environ.get("MONGO_URI"))
+
+
 db = client["jobtracker"]
 
 jobs_collection = db["jobs"]
